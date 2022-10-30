@@ -1,0 +1,12 @@
+gdown==4.5.3
+mayavi==4.8.1
+numpy==1.21.6
+open3d==0.9.0.0
+plyfile==0.7.4
+pytest==7.2.0
+PyYAML==6.0
+scipy==1.7.3
+setuptools==65.4.0
+sphinx_rtd_theme==1.0.0
+cmake>=3.13.2
+tensorboardX==2.5.1
