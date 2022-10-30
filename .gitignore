@@ -31,3 +31,6 @@ ipython_config.py
 pretrained/
 testclouds/result/
 testclouds/scans/
+lib/pointgroup_ops/PG_OP.cpython-37m-x86_64-linux-gnu.so
+lib/pointgroup_ops/PG_OP.egg-info/
+lib/pointgroup_ops/build/

@@ -69,19 +69,21 @@ pip install -r requirements.txt
 conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch -y
 ```
 
-Compile `spconv`:
+Compile and install `spconv`:
 ```shell
-conda install libboost -y
+sudo apt install libboost-dev -y
 sudo apt install gcc-5 g++-5 -y
 sudo ln -s /usr/bin/gcc-5 /usr/local/cuda/bin/gcc  # create symlink because compiling spconv require gcc-5
 sudo ln -s /usr/bin/g++-5 /usr/local/cuda/bin/g++  # create symlink because compiling spconv require g++-5
 cd lib/spconv
 python setup.py bdist_wheel
+cd dist
+pip install *
 ```
 
-Compile `pg_op`:
+Compile and install `pg_op`:
 ```shell
-conda install -c bioconda google-sparsehash -y
+sudo apt install libsparsehash-dev -y
 cd lib/pointgroup_ops
 python setup.py develop
 ```
