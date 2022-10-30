@@ -1,10 +1,3 @@
-pip install -r requirements.txt
-conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
-apt update
-apt install vim openssh-server -y
-apt install libsparsehash-dev libboost-dev -y
-apt install libgl1 libxrender1 libglib2.0-0 -y
-
 # AccMap
 
 ## Setup
@@ -46,7 +39,52 @@ source ~/.bashrc
 nvcc --version  # check if install CUDA correctly
 ```
 
+### Install cuDNN7.6.5 in Ubuntu18.04
+Download cuDNN7.6.5 from [here](https://developer.nvidia.com/compute/machine-learning/cudnn/secure/7.6.5.32/Production/9.0_20191031/cudnn-9.0-linux-x64-v7.6.5.32.tgz), and unzip it to current working directory. You may need to sign up in order to download cuDNN.
+```shell
+tar -xzvf cudnn-9.0-linux-x64-v7.6.5.32.tgz  # unzip the file
+sudo cp -P cuda/include/cudnn.h /usr/local/cuda-9.0/include  # copy files to /usr/local/cuda-9.0/include
+sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda-9.0/lib64/  # copy files to /usr/local/cuda-9.0/lib64/
+sudo chmod a+r /usr/local/cuda-9.0/lib64/libcudnn*
+rm cudnn-9.0-linux-x64-v7.6.5.32.tgz  # delete the zip file
+rm -rf cuda/  # delete the unzip file
+```
 
+### Install conda
+```shell
+wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh
+sh Miniconda3-py39_4.12.0-Linux-x86_64.sh
+rm Miniconda3-py39_4.12.0-Linux-x86_64.sh
+source ~/.bashrc
+conda create -n AccMap python=3.7 -y
+echo 'conda activate AccMap' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### Install all necessary dependencies
+```shell
+git clone https://github.com/JunweiZheng93/AccMap.git
+cd AccMap
+pip install -r requirements.txt
+conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch -y
+```
+
+Compile `spconv`:
+```shell
+conda install libboost -y
+sudo apt install gcc-5 g++-5 -y
+sudo ln -s /usr/bin/gcc-5 /usr/local/cuda/bin/gcc  # create symlink because compiling spconv require gcc-5
+sudo ln -s /usr/bin/g++-5 /usr/local/cuda/bin/g++  # create symlink because compiling spconv require g++-5
+cd lib/spconv
+python setup.py bdist_wheel
+```
+
+Compile `pg_op`:
+```shell
+conda install -c bioconda google-sparsehash -y
+cd lib/pointgroup_ops
+python setup.py develop
+```
 
 
 

@@ -10,3 +10,5 @@ setuptools==65.4.0
 sphinx_rtd_theme==1.0.0
 cmake>=3.13.2
 tensorboardX==2.5.1
+pyqt5==5.15.7
+opencv-python==4.6.0.66
