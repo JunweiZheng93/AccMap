@@ -64,8 +64,6 @@ class Dataset:
             self.test_file_names = sorted(glob.glob(os.path.join(self.data_root, self.dataset, self.test_split, '*' + self.filename_suffix)))
         self.test_files = [torch.load(i) for i in self.test_file_names]
 
-        print('Testing samples ({}): {}'.format(self.test_split, len(self.test_files)))
-
         test_set = list(np.arange(len(self.test_files)))
         self.test_data_loader = DataLoader(test_set, batch_size=1, collate_fn=self.testMerge, num_workers=self.test_workers,
                                            shuffle=False, drop_last=False, pin_memory=True)

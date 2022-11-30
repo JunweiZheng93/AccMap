@@ -5,7 +5,7 @@ GENERAL:
   dataset_dir: data/scannetv2_inst.py
 
 DATA:
-  data_root: testclouds
+  data_root: /tmp
   dataset: scans
   filename_suffix: _inst_nostuff.pth
 
