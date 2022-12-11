@@ -92,5 +92,7 @@ python setup.py develop
 
 ## Usage
 
+```python
 python AccMap.py
+```
 
