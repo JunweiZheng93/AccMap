@@ -96,3 +96,6 @@ python setup.py develop
 python AccMap.py
 ```
 
+## License
+
+This repository is released under the MIT license as found in the [LICENSE](LICENSE.md) file.
