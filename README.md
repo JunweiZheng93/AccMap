@@ -1,5 +1,8 @@
 # AccMap
 
+## Demo Video
+[![MapAugmentation Demo Video](https://res.cloudinary.com/marcomontalbano/image/upload/v1670718422/video_to_markdown/images/youtube--R3bbKG-te7k-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://www.youtube.com/watch?v=R3bbKG-te7k "MapAugmentation Demo Video")
+
 ## Setup
 
 ### Requirements
